@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {MatBadge} from '@angular/material/badge';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,9 @@ import {MatButton} from '@angular/material/button';
   imports: [
     MatIcon,
     MatButton,
-    MatBadge
+    MatBadge,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
