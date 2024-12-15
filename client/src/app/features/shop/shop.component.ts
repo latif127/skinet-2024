@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatCard } from '@angular/material/card';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { ShopParams } from '../../shared/models/shopParams';
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-shop',
   standalone: true,
   imports: [
-    MatCard,
     ProductItemComponent,
     MatButton,
     MatIcon,
@@ -59,7 +57,7 @@ export class ShopComponent implements OnInit {
   getProducts(){
     this.shopService.getProducts(this.shopParams).subscribe({
       next:response=>this.products=response,
-      error:error=>console.log(error)
+      error:error=>console.error(error)
     })
   }
 
@@ -99,10 +97,6 @@ export class ShopComponent implements OnInit {
           this.shopParams.types=result.selectedTypes;
           this.shopParams.pageNumber=1;
           this.getProducts();
-          /*this.shopService.getProducts(this.selectedBrands, this.selectedTypes).subscribe({
-            next:response=>this.products=response.data,
-            error:error=>console.log(error)
-          })*/
         }
       }
     })
