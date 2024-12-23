@@ -10,8 +10,10 @@ using API.DTOs;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class BuggyController:BaseApiController
     {
+        //[AllowAnonymous]
         [HttpGet("unauthorized")]
         public IActionResult GetUnauthorized()
         {
